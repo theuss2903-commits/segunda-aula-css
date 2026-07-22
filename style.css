@@ -1,5 +1,5 @@
 /* ==========================================================================
-   AULA 2 DE CSS — Instituto Vocação  (Aula 8: Transições e Animações)
+   AULA 2 DE CSS —Vocação  (Aula 8: Transições e Animações)
    Este arquivo veio da Aula 1. Hoje você vai:
    1) Personalizar cores, tamanhos e fontes aqui embaixo (sozinho);
    2) Ajustar o .menu (transição) e criar o botão "Voltar ao topo" com o professor;
@@ -22,7 +22,7 @@
 /* 🎨 PERSONALIZE AQUI: troque a fonte e a cor do texto do site inteiro */
 body {
   font-family: 'Inter', Arial, sans-serif;
-  color: #2c3e50;
+  color: #4386a5;
   line-height: 1.6;
 }
 
@@ -39,8 +39,18 @@ body {
 }
 
 /* 🎬 Faça junto com o Professor: ANIMAÇÃO com @keyframes — o logo entra deslizando de cima quando a página abre */
+.logo{
+  animation: entrarDoTopo 0.8s ease-out both
+}
+@keyframes entrardotopo{
+  from{
+    opacity: 0;
+    transform: translate(-20px);
+  }
+  to{
 
-
+  }
+}
 .menu a {
   color: #fff;
   margin-left: 1.5rem;
@@ -54,7 +64,19 @@ body {
    1) Criar o "traço" com ::after (ele começa com largura 0, ou seja, invisível)
    2) Avisar ao navegador que a largura (width) deve ANIMAR com transition
    3) No :hover, mudar a largura para 100% — a transition faz o resto sozinha */
-
+.menu a::after{
+  content: '';
+  position: absolute;
+  left:0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+background-color: aquamarine;
+transition: width .3s ease;
+}
+.menu a hover::after{
+  width: 100%;
+}
 section {
   padding: 3rem 2rem;
   max-width: 1100px;
@@ -81,8 +103,18 @@ section {
   transition: transform .25s ease, box-shadow .25s ease;
 }
 
-/* Bônus de transição: card levanta ao passar o mouse Faça junto com o professor*/
-
+/* aprendendo transição: card levanta ao passar o mouse Faça junto com o professor*/
+.card:hover{
+transform: translate(-4px);
+box-shadow: 0 8px 20px rgba{0,0,.12};
+}
+.card ing{
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px ;
+}
 .rodape {
   background: #0f172a;
   color: #cbd5e1;
@@ -97,7 +129,26 @@ section {
    1) position: fixed -> o botão fica "grudado" na tela, mesmo rolando a página
    2) TRANSFORM é usado no :hover para levantar e crescer o botão
    3) TRANSITION avisa o navegador para animar esse movimento suavemente */
+.botao-topo{
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  width: 2rem;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #0f172a;
+  color: #8aa8ee;
+  display: flex;
+  justify-content: center;
+  font-size: 1.4rem;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,.2);
+  transition: tansform .25s ease;
+  backgroud-color: .25s ease;
+}
+  botao-topo:haver{
 
+  }
 @media (max-width: 600px) {
   .cards {
     flex-direction: column;
